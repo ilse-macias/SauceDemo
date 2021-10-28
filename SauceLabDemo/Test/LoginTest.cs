@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using SauceLabDemo.POM;
+using SauceLabDemo.Constants;
 
 namespace SauceLabDemo
 {
@@ -13,16 +14,17 @@ namespace SauceLabDemo
         [SetUp]
         public void Setup()
         {
-            _driver = new FirefoxDriver();
+            _driver = new ChromeDriver();
             _driver.Manage().Cookies.DeleteAllCookies();
             _driver.Navigate().GoToUrl("https://www.saucedemo.com/");
+            _driver.Manage().Window.Maximize();
         }
 
-        [Test, Description("Login with a valid user)"]
+        [Test, Description("Login with a valid user")]
         public void LoginWithAValidCredentials()
         {
             LoginPage login = new LoginPage(_driver);
-            login.LoginTheWebsite("standard_user", "secret_sauce");
+            login.LoginTheWebsite(LoginConstants.Username, LoginConstants.Password);
 
             Assert.Pass();
         }
@@ -31,7 +33,7 @@ namespace SauceLabDemo
         public void LoginInvalidUser()
         {
             LoginPage login = new LoginPage(_driver);
-            login.LoginTheWebsite("standard_user", "no_pass");
+            login.LoginTheWebsite(LoginConstants.Username, LoginConstants.WrongPassword);
             Assert.Fail("Epic sadface: Username and password do not match any user in this service");
         }
 
