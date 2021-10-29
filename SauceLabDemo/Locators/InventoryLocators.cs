@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SauceLabDemo.Constants
+﻿namespace SauceLabDemo
 {
-    public static class InventoryLocatorConstants
+    public static class InventoryLocators
     {
         public static string BurgerMenuId = "react-burger-menu-btn";
         public static string LogoutLinkId = "logout_sidebar_link";

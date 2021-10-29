@@ -1,11 +1,5 @@
 ﻿using OpenQA.Selenium;
-using SauceLabDemo.Constants;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace SauceLabDemo
 {
@@ -17,7 +11,7 @@ namespace SauceLabDemo
         public CartPage(IWebDriver _driver)
         {
             this._driver = _driver;
-            _checkoutButton = _driver.FindElement(By.Id(CartLocatorsConstants.CheckOutId));
+            _checkoutButton = _driver.FindElement(By.Id(CartLocators.CheckOutId));
         }
 
         public void ClickOnCheckOutButton()

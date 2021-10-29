@@ -1,11 +1,8 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using SauceLabDemo.Constants;
-using System.Collections.Generic;
 using System.Threading;
 
-
-namespace SauceLabDemo.POM
+namespace SauceLabDemo
 {
     public class InventoryPage
     {
@@ -20,7 +17,7 @@ namespace SauceLabDemo.POM
         public InventoryPage(IWebDriver _driver)
         {
             this._driver = _driver;
-            _burgerMenuIcon = _driver.FindElement(By.Id(InventoryLocatorConstants.BurgerMenuId));
+            _burgerMenuIcon = _driver.FindElement(By.Id(InventoryLocators.BurgerMenuId));
         }
 
         public void ClickOnLogout()
@@ -28,29 +25,29 @@ namespace SauceLabDemo.POM
             _burgerMenuIcon.Click();
             Thread.Sleep(5000);
 
-            _logoutLink = _driver.FindElement(By.Id(InventoryLocatorConstants.LogoutLinkId));
+            _logoutLink = _driver.FindElement(By.Id(InventoryLocators.LogoutLinkId));
             _logoutLink.Click();
         }
 
         public void SortProducts()
         {
-            _sortProduct = _driver.FindElement(By.ClassName(InventoryLocatorConstants.SortDropDownListCss));
+            _sortProduct = _driver.FindElement(By.ClassName(InventoryLocators.SortDropDownListCss));
 
             SelectElement selectElement = new SelectElement(_sortProduct);
-            selectElement.SelectByValue(InventoryLocatorConstants.SelectSortValue);
+            selectElement.SelectByValue(InventoryLocators.SelectSortValue);
             Thread.Sleep(5000);
         }
 
         public void AddOneSieProductToCart()
         {
-            _addOneSieProduct = _driver.FindElement(By.Id(InventoryLocatorConstants.OneSieProductId));
+            _addOneSieProduct = _driver.FindElement(By.Id(InventoryLocators.OneSieProductId));
             _addOneSieProduct.Click();
             Thread.Sleep(5000);
         }
 
         public void ClickOnCartIcon()
         {
-            _cartIcon = _driver.FindElement(By.ClassName(InventoryLocatorConstants.CartIconCss));
+            _cartIcon = _driver.FindElement(By.ClassName(InventoryLocators.CartIconCss));
             _cartIcon.Click();
             Thread.Sleep(5000);
         }

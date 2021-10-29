@@ -1,10 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using SauceLabDemo.POM;
-using SauceLabDemo.Constants;
 using System;
-
 
 namespace SauceLabDemo.Test
 {
@@ -17,7 +14,7 @@ namespace SauceLabDemo.Test
         {
             _driver = new ChromeDriver();
             _driver.Manage().Cookies.DeleteAllCookies();
-            _driver.Navigate().GoToUrl("https://www.saucedemo.com/");
+            _driver.Navigate().GoToUrl(MainConstants.Url);
             _driver.Manage().Window.Maximize();
         }
 

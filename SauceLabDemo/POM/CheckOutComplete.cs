@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace SauceLabDemo.POM
+namespace SauceLabDemo
 {
     public class CheckOutComplete
     {
@@ -15,7 +15,7 @@ namespace SauceLabDemo.POM
 
         public void GoToProductsPage()
         {
-            _backHomeButton = _driver.FindElement(By.Id("back-to-products"));
+            _backHomeButton = _driver.FindElement(By.Id(CheckOutCompleteLocators.BackHomeButtonId));
             _backHomeButton.Click();
         }
     }
