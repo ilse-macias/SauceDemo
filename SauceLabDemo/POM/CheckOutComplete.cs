@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 
 namespace SauceLabDemo
 {
@@ -17,6 +18,8 @@ namespace SauceLabDemo
         {
             _backHomeButton = _driver.FindElement(By.Id(CheckOutCompleteLocators.BackHomeButtonId));
             _backHomeButton.Click();
+
+            Assert.AreEqual(_thankYouConfirmationText.ToString(), "THANK YOU FOR YOUR ORDER");
         }
     }
 }
