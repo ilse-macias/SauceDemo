@@ -17,16 +17,16 @@ namespace SauceLabDemo
 
         public void FillOutTheInformation(string firstName, string lastName, string zipCode)
         {
-            _firstNameField = _driver.FindElement(By.Id("first-name"));
+            _firstNameField = _driver.FindElement(By.Id(CheckOutYourInformationLocators.FirstNameId));
             _firstNameField.SendKeys(firstName);
 
-            _lastNameField = _driver.FindElement(By.Id("last-name"));
+            _lastNameField = _driver.FindElement(By.Id(CheckOutYourInformationLocators.LastNameId));
             _lastNameField.SendKeys(lastName);
 
-            _zipCodeField = _driver.FindElement(By.Id("postal-code"));
+            _zipCodeField = _driver.FindElement(By.Id(CheckOutYourInformationLocators.ZipCodeId));
             _zipCodeField.SendKeys(zipCode);
 
-            _continueButton = _driver.FindElement(By.Id("continue"));
+            _continueButton = _driver.FindElement(By.Id(CheckOutYourInformationLocators.ContinueButtonId));
             _continueButton.Click();
         }
     }

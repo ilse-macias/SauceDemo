@@ -14,7 +14,7 @@ namespace SauceLabDemo
 
         public void CheckOutLastStep()
         {
-            _finishButton = _driver.FindElement(By.Id("finish"));
+            _finishButton = _driver.FindElement(By.Id(CheckOutOverviewLocators.FinishButtonId));
             _finishButton.Click();
         }
     }
