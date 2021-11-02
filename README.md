@@ -11,4 +11,5 @@ What do you need to run the project.
     3. Selenium.WebDriver.ChromeDriver
     4. Selenium.WebDriver.GeckoDriver
     5. NUnit
+    6. ExtendReports
  
