@@ -1,13 +1,26 @@
-﻿using NUnit.Framework;
+﻿using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 
-namespace SauceLabDemo.Test
+namespace SauceLabDemo
 {
     public class CheckOutTest
     {
         private IWebDriver _driver;
+
+        private static ExtentTest test;
+        private static ExtentReports extent;
+
+        [OneTimeSetUp]
+        public void ExtendStart()
+        {
+            extent = new ExtentReports();
+            var htmlReport = new ExtentHtmlReporter(MainConstants.PathHtmlReports);
+            extent.AttachReporter(htmlReport);
+        }
 
         [SetUp]
         public void Setup()
@@ -22,6 +35,8 @@ namespace SauceLabDemo.Test
         public void Checkout()
         {
             var seconds = TimeSpan.FromSeconds(15);
+            test = null;
+            test = extent.CreateTest("Complete a purchase.");
 
             LoginPage login = new LoginPage(_driver);
             login.LoginTheWebsite(LoginConstants.Username, LoginConstants.Password);
@@ -39,6 +54,8 @@ namespace SauceLabDemo.Test
 
             CheckOutOverview checkoutTwo = new CheckOutOverview(_driver);
             checkoutTwo.CheckOutLastStep();
+
+            test.Log(Status.Pass, "Test Pass");
         }
 
         [TearDown]
